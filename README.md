@@ -1,4 +1,4 @@
-# turf-sages<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -324,7 +324,7 @@
       </div>
     </div>
     <div class="subnote">
-      ✦ your info is sent to <a href="mailto:turfsages@gmail.com">turfsages@gmail.com</a>
+      ✦ your info is sent to <a href="mailto:wanderlei@turfsages.com">wanderlei@turfsages.com</a>
     </div>
   </div>
 
@@ -337,8 +337,8 @@
     const submitBtn = document.getElementById('submitBtn');
     const waitMessage = document.getElementById('waitMessage');
 
-    // target email (hardcoded as requested)
-    const TARGET_EMAIL = 'turfsages@gmail.com';
+    // target email (updated to wanderlei@turfsages.com)
+    const TARGET_EMAIL = 'wanderlei@turfsages.com';
 
     // helper to show wait state
     function showWaitState() {
@@ -447,7 +447,7 @@
   })();
 </script>
 
-<!-- note: the mailto approach sends the info to turfsages@gmail.com directly via the user's default email client. 
+<!-- note: the mailto approach sends the info to wanderlei@turfsages.com directly via the user's default email client. 
      It also shows the wait message after submission, as requested. 
      The design is modern, minimal, and avoids AI-generated clichés. -->
 </body>
