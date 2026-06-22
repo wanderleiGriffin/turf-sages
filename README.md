@@ -1,454 +1,490 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Turf Sage · waitlist</title>
-  <!-- Font & minimal reset -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Father's Day 💙</title>
+    <style>
+        /* ── Reset & Base ── */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      background: #f6f8fa;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-      line-height: 1.5;
-      color: #1e293b;
-    }
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(145deg, #0b1a2e, #1a2f44);
+            font-family: 'Segoe UI', 'Poppins', system-ui, sans-serif;
+            padding: 20px;
+            overflow-x: hidden;
+        }
 
-    .card {
-      max-width: 560px;
-      width: 100%;
-      background: #ffffff;
-      border-radius: 40px;
-      box-shadow: 0 20px 60px -12px rgba(0, 20, 30, 0.15), 0 4px 18px rgba(0, 0, 0, 0.02);
-      padding: 2.5rem 2rem 2.8rem;
-      transition: box-shadow 0.2s ease;
-    }
+        /* ── Floating particles (stars) ── */
+        .particles {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: rgba(255, 215, 100, 0.5);
+            border-radius: 50%;
+            box-shadow: 0 0 12px rgba(255, 215, 100, 0.3);
+            animation: floatParticle linear infinite;
+        }
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(100vh) scale(0.2);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.2);
+                opacity: 0;
+            }
+        }
 
-    /* brand */
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 2rem;
-    }
+        /* ── Card Container ── */
+        .card-wrapper {
+            perspective: 1500px;
+            width: 100%;
+            max-width: 520px;
+            position: relative;
+            z-index: 1;
+        }
 
-    .brand-icon {
-      background: #0b2b26;
-      color: #d4e9e2;
-      width: 44px;
-      height: 44px;
-      border-radius: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.6rem;
-      font-weight: 500;
-      letter-spacing: -0.5px;
-      box-shadow: 0 6px 12px -6px rgba(10, 40, 30, 0.2);
-    }
+        /* ── The Card ── */
+        .card {
+            position: relative;
+            width: 100%;
+            padding-bottom: 130%;
+            /* aspect ratio ~ 3:4 */
+            transition: transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
 
-    .brand-name {
-      font-size: 1.8rem;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      color: #0b2b26;
-    }
+        /* ── Faces ── */
+        .card-face {
+            position: absolute;
+            inset: 0;
+            border-radius: 32px;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 28px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(255, 215, 100, 0.15);
+            overflow: hidden;
+            transition: box-shadow 0.4s;
+        }
+        .card-face:hover {
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.7), 0 0 0 3px rgba(255, 215, 100, 0.25);
+        }
 
-    .brand-name span {
-      font-weight: 400;
-      color: #5f7b76;
-    }
+        /* ── Front ── */
+        .card-front {
+            background: linear-gradient(160deg, #1e3a5f, #0f2440);
+            color: #f5e7c8;
+            border: 1px solid rgba(255, 215, 100, 0.2);
+            transform: rotateY(0deg);
+        }
+        .card-front::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 30%, rgba(255, 215, 100, 0.06), transparent 70%);
+            pointer-events: none;
+        }
+        .card-front .gold {
+            color: #f6c96e;
+            text-shadow: 0 0 20px rgba(246, 201, 110, 0.25);
+        }
 
-    /* headline */
-    .headline {
-      margin-bottom: 2.2rem;
-    }
+        .front-icon {
+            font-size: 70px;
+            margin-bottom: 16px;
+            animation: pulseGlow 2.4s ease-in-out infinite;
+            filter: drop-shadow(0 0 18px rgba(255, 215, 100, 0.3));
+        }
+        @keyframes pulseGlow {
+            0%,
+            100% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 18px rgba(255, 215, 100, 0.25));
+            }
+            50% {
+                transform: scale(1.08);
+                filter: drop-shadow(0 0 34px rgba(255, 215, 100, 0.5));
+            }
+        }
 
-    .headline h1 {
-      font-size: 1.9rem;
-      font-weight: 650;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-      color: #0b2b26;
-    }
+        .front-title {
+            font-size: clamp(2rem, 8vw, 3.2rem);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-align: center;
+            line-height: 1.2;
+            margin-bottom: 6px;
+        }
+        .front-sub {
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            color: #b8d0e8;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: 300;
+            margin-bottom: 20px;
+            border-bottom: 2px solid rgba(246, 201, 110, 0.25);
+            padding-bottom: 14px;
+        }
+        .front-names {
+            font-size: clamp(1.3rem, 4vw, 1.9rem);
+            font-weight: 300;
+            color: #f0e0c0;
+            letter-spacing: 3px;
+        }
+        .front-names strong {
+            font-weight: 600;
+            color: #f6c96e;
+        }
 
-    .headline p {
-      margin-top: 0.5rem;
-      font-size: 1rem;
-      color: #4b5e5a;
-      font-weight: 400;
-      max-width: 90%;
-    }
+        .front-hint {
+            margin-top: 28px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.35);
+            letter-spacing: 2px;
+            border: 1px solid rgba(255, 215, 100, 0.12);
+            padding: 8px 22px;
+            border-radius: 40px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(2px);
+            transition: all 0.3s;
+        }
+        .card-front:hover .front-hint {
+            color: rgba(255, 255, 255, 0.6);
+            border-color: rgba(255, 215, 100, 0.25);
+        }
 
-    /* form */
-    .address-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
+        /* ── Back ── */
+        .card-back {
+            background: linear-gradient(160deg, #faf3e8, #f0e3d0);
+            color: #1e2f44;
+            transform: rotateY(180deg);
+            border: 1px solid rgba(246, 201, 110, 0.3);
+            justify-content: flex-start;
+            padding-top: 40px;
+        }
+        .card-back::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 80% 10%, rgba(246, 201, 110, 0.10), transparent 60%);
+            pointer-events: none;
+        }
 
-    .input-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
+        .back-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+            width: 100%;
+            border-bottom: 2px solid rgba(246, 201, 110, 0.3);
+            padding-bottom: 14px;
+        }
+        .back-header .heart-icon {
+            font-size: 32px;
+            color: #d44a5a;
+            animation: heartBeat 1.6s ease-in-out infinite;
+        }
+        @keyframes heartBeat {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            15% {
+                transform: scale(1.25);
+            }
+            30% {
+                transform: scale(1);
+            }
+            45% {
+                transform: scale(1.15);
+            }
+            60% {
+                transform: scale(1);
+            }
+        }
+        .back-header h2 {
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
+            font-weight: 600;
+            color: #1a2f44;
+            letter-spacing: 1px;
+        }
+        .back-header h2 span {
+            color: #d44a5a;
+        }
 
-    .input-group label {
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      color: #1e3a34;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
+        .message {
+            font-size: clamp(1rem, 2.8vw, 1.25rem);
+            line-height: 1.8;
+            color: #2a3f54;
+            text-align: left;
+            width: 100%;
+            margin: 6px 0 12px;
+            font-weight: 400;
+        }
+        .message p {
+            margin-bottom: 14px;
+        }
+        .message .signature {
+            text-align: right;
+            font-style: italic;
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            color: #1a2f44;
+            margin-top: 8px;
+            border-top: 1px solid rgba(246, 201, 110, 0.25);
+            padding-top: 14px;
+        }
+        .message .signature strong {
+            font-weight: 600;
+            color: #c47a3a;
+        }
 
-    .input-group label svg {
-      opacity: 0.6;
-    }
+        .back-deco {
+            display: flex;
+            gap: 10px;
+            margin-top: 8px;
+            font-size: 26px;
+            letter-spacing: 6px;
+            color: #c47a3a;
+            opacity: 0.4;
+            width: 100%;
+            justify-content: center;
+        }
 
-    .input-group input {
-      width: 100%;
-      padding: 0.9rem 1.2rem;
-      font-size: 1rem;
-      font-family: 'Inter', sans-serif;
-      background: #f2f5f7;
-      border: 1.5px solid #e2e9ed;
-      border-radius: 28px;
-      transition: border 0.15s ease, box-shadow 0.15s ease;
-      color: #0b2b26;
-      font-weight: 450;
-      letter-spacing: -0.01em;
-    }
+        .back-hint {
+            margin-top: auto;
+            font-size: 0.75rem;
+            color: rgba(26, 47, 68, 0.3);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-top: 1px solid rgba(26, 47, 68, 0.08);
+            padding-top: 16px;
+            width: 100%;
+            text-align: center;
+        }
 
-    .input-group input:focus {
-      outline: none;
-      border-color: #0b2b26;
-      box-shadow: 0 0 0 4px rgba(11, 43, 38, 0.08);
-      background: #ffffff;
-    }
+        /* ── Responsive tweaks ── */
+        @media (max-width: 480px) {
+            .card-face {
+                padding: 24px 18px;
+                border-radius: 24px;
+            }
+            .front-icon {
+                font-size: 50px;
+            }
+            .message {
+                font-size: 0.95rem;
+                line-height: 1.7;
+            }
+            .back-header .heart-icon {
+                font-size: 26px;
+            }
+        }
 
-    .input-group input::placeholder {
-      color: #94a8a2;
-      font-weight: 400;
-      opacity: 0.8;
-    }
+        @media (min-width: 768px) {
+            .card-wrapper {
+                max-width: 580px;
+            }
+        }
 
-    /* button */
-    .submit-btn {
-      background: #0b2b26;
-      color: white;
-      font-weight: 600;
-      font-size: 1.1rem;
-      padding: 0.95rem 1.8rem;
-      border: none;
-      border-radius: 60px;
-      cursor: pointer;
-      transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
-      box-shadow: 0 6px 18px -6px rgba(11, 43, 38, 0.25);
-      letter-spacing: -0.01em;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 0.5rem;
-      width: 100%;
-    }
-
-    .submit-btn:hover {
-      background: #153f38;
-      box-shadow: 0 10px 22px -10px rgba(11, 43, 38, 0.35);
-    }
-
-    .submit-btn:active {
-      transform: scale(0.97);
-      background: #0a241f;
-    }
-
-    .submit-btn:disabled {
-      opacity: 0.6;
-      pointer-events: none;
-      transform: scale(0.98);
-    }
-
-    /* status message / wait state */
-    .status-area {
-      margin-top: 2rem;
-      padding: 0.5rem 0.2rem;
-      min-height: 4.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-    }
-
-    .wait-message {
-      background: #eef4f0;
-      border-radius: 40px;
-      padding: 1.2rem 1.8rem;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      border-left: 6px solid #0b2b26;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-      opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 0.25s ease, transform 0.25s ease;
-    }
-
-    .wait-message.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .wait-message svg {
-      flex-shrink: 0;
-    }
-
-    .wait-message span {
-      font-weight: 500;
-      color: #1e3a34;
-      font-size: 1.05rem;
-      letter-spacing: -0.01em;
-    }
-
-    .wait-message small {
-      display: block;
-      font-weight: 400;
-      color: #4d6b63;
-      font-size: 0.9rem;
-      margin-top: 3px;
-    }
-
-    .subnote {
-      margin-top: 0.6rem;
-      font-size: 0.8rem;
-      color: #6a847c;
-      letter-spacing: -0.01em;
-      padding-left: 0.3rem;
-    }
-
-    .subnote a {
-      color: #0b2b26;
-      font-weight: 500;
-      text-decoration: none;
-      border-bottom: 1px dotted #b6cdc4;
-    }
-
-    .subnote a:hover {
-      border-bottom: 1px solid #0b2b26;
-    }
-
-    /* simple state: hidden by default */
-    .hidden {
-      display: none !important;
-    }
-
-    /* mobile fine-tune */
-    @media (max-width: 480px) {
-      .card {
-        padding: 2rem 1.25rem 2.2rem;
-        border-radius: 32px;
-      }
-      .brand-name {
-        font-size: 1.6rem;
-      }
-      .headline h1 {
-        font-size: 1.6rem;
-      }
-      .wait-message {
-        padding: 1rem 1.4rem;
-      }
-    }
-  </style>
+        /* ── Confetti overlay (on flip) ── */
+        .confetti-container {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 10;
+            overflow: hidden;
+        }
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            opacity: 0;
+            animation: confettiFall linear forwards;
+        }
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-20px) rotate(0deg) scale(0.5);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) rotate(720deg) scale(1.2);
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<div class="card" role="main">
-  
-  <!-- brand -->
-  <div class="brand">
-    <div class="brand-icon">🌿</div>
-    <div class="brand-name">Turf <span>Sage</span></div>
-  </div>
+    <!-- ─── Floating Particles ─── -->
+    <div class="particles" id="particles"></div>
 
-  <!-- headline -->
-  <div class="headline">
-    <h1>Your lawn,<br />our wisdom.</h1>
-    <p>Drop your address — we’ll reach out personally.</p>
-  </div>
+    <!-- ─── Confetti Container ─── -->
+    <div class="confetti-container" id="confettiContainer"></div>
 
-  <!-- form -->
-  <form id="addressForm" class="address-form" novalidate>
-    <div class="input-group">
-      <label for="addressInput">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-        Street address
-      </label>
-      <input 
-        type="text" 
-        id="addressInput" 
-        placeholder="e.g. 1234 Elm St, Springfield" 
-        required 
-        autocomplete="street-address"
-      />
+    <!-- ─── Card ─── -->
+    <div class="card-wrapper">
+        <div class="card" id="card">
+
+            <!-- FRONT -->
+            <div class="card-face card-front">
+                <div class="front-icon">👔</div>
+                <div class="front-title gold">Happy Father's Day</div>
+                <div class="front-sub">with love</div>
+                <div class="front-names">
+                    from <strong>Wan</strong> &amp; <strong>Senette</strong>
+                </div>
+                <div class="front-hint">✨ tap to open ✨</div>
+            </div>
+
+            <!-- BACK -->
+            <div class="card-face card-back">
+                <div class="back-header">
+                    <span class="heart-icon">❤️</span>
+                    <h2>For <span>Dad</span></h2>
+                </div>
+
+                <div class="message">
+                    <p>
+                        Thank you for being our rock, our guide, and our greatest
+                        cheerleader. Your strength, kindness, and wisdom inspire us
+                        every single day.
+                    </p>
+                    <p>
+                        We're so grateful for all the little moments — the laughs,
+                        the talks, and the way you always make us feel loved.
+                    </p>
+                    <p>
+                        You are our hero, today and always.
+                    </p>
+                    <div class="signature">
+                        with all our love,<br />
+                        <strong>Wan</strong> &amp; <strong>Senette</strong> 💙
+                    </div>
+                </div>
+
+                <div class="back-deco">✦ ✧ ✦ ✧ ✦</div>
+                <div class="back-hint">♡ forever &amp; always ♡</div>
+            </div>
+
+        </div>
     </div>
 
-    <button type="submit" class="submit-btn" id="submitBtn">
-      <span>Get sage advice</span>
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </button>
-  </form>
+    <script>
+        // ─── Particles ───
+        (function createParticles() {
+            const container = document.getElementById('particles');
+            const count = 50;
+            for (let i = 0; i < count; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                const size = 3 + Math.random() * 8;
+                p.style.width = size + 'px';
+                p.style.height = size + 'px';
+                p.style.left = Math.random() * 100 + '%';
+                p.style.animationDuration = 12 + Math.random() * 20 + 's';
+                p.style.animationDelay = Math.random() * 20 + 's';
+                p.style.background = `rgba(255, 215, 100, ${0.2 + Math.random() * 0.4})`;
+                p.style.boxShadow = `0 0 ${size * 2}px rgba(255, 215, 100, ${0.1 + Math.random() * 0.2})`;
+                container.appendChild(p);
+            }
+        })();
 
-  <!-- status / wait message -->
-  <div class="status-area">
-    <div id="waitMessage" class="wait-message">
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0b2b26" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4l3 3"/></svg>
-      <div>
-        <span>Waiting for Turf Sage</span>
-        <small>We’ll respond within 24h · check your inbox</small>
-      </div>
-    </div>
-    <div class="subnote">
-      ✦ your info is sent to <a href="mailto:wanderlei@turfsages.com">wanderlei@turfsages.com</a>
-    </div>
-  </div>
+        // ─── Card Flip ───
+        const card = document.getElementById('card');
+        let isFlipped = false;
 
-</div>
+        card.addEventListener('click', function(e) {
+            // Ignore clicks on interactive elements inside the card if needed
+            isFlipped = !isFlipped;
+            card.classList.toggle('flipped', isFlipped);
 
-<script>
-  (function() {
-    const form = document.getElementById('addressForm');
-    const addressInput = document.getElementById('addressInput');
-    const submitBtn = document.getElementById('submitBtn');
-    const waitMessage = document.getElementById('waitMessage');
+            // Trigger confetti when opening (back face becomes visible)
+            if (isFlipped) {
+                launchConfetti();
+            }
+        });
 
-    // target email (updated to wanderlei@turfsages.com)
-    const TARGET_EMAIL = 'wanderlei@turfsages.com';
+        // ─── Confetti ───
+        function launchConfetti() {
+            const container = document.getElementById('confettiContainer');
+            const colors = ['#f6c96e', '#d44a5a', '#4a8db7', '#f0e3d0', '#c47a3a', '#8ab3cf', '#ffb07c'];
+            const count = 70;
 
-    // helper to show wait state
-    function showWaitState() {
-      waitMessage.classList.add('visible');
-    }
+            for (let i = 0; i < count; i++) {
+                const piece = document.createElement('div');
+                piece.className = 'confetti-piece';
+                const size = 6 + Math.random() * 10;
+                const isCircle = Math.random() > 0.5;
+                piece.style.width = isCircle ? size + 'px' : size * 0.4 + 'px';
+                piece.style.height = isCircle ? size + 'px' : size * 1.6 + 'px';
+                piece.style.borderRadius = isCircle ? '50%' : '2px';
+                piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+                piece.style.left = Math.random() * 100 + '%';
+                piece.style.top = '-10px';
+                piece.style.transform = `rotate(${Math.random() * 360}deg)`;
+                const duration = 2 + Math.random() * 3;
+                piece.style.animationDuration = duration + 's';
+                piece.style.animationDelay = Math.random() * 1.2 + 's';
+                piece.style.opacity = '1';
+                piece.style.boxShadow = '0 2px 8px rgba(0,0,0,0.15)';
+                container.appendChild(piece);
 
-    // helper to hide wait state (if needed, but we keep it visible after submit)
-    function resetWaitState() {
-      waitMessage.classList.remove('visible');
-    }
+                // Remove after animation ends
+                setTimeout(() => {
+                    if (piece.parentNode) piece.remove();
+                }, (duration + 1.5) * 1000);
+            }
 
-    // send data via mailto: with pre-filled subject & body
-    function sendViaMailto(address) {
-      // build mailto link with subject and body
-      const subject = encodeURIComponent('New Turf Sage inquiry');
-      const body = encodeURIComponent(
-        `Address: ${address}\n\n` +
-        `— submitted via Turf Sage website`
-      );
-      const mailtoLink = `mailto:${TARGET_EMAIL}?subject=${subject}&body=${body}`;
-      
-      // open default mail client
-      window.location.href = mailtoLink;
+            // Clean up any leftovers after a while
+            setTimeout(() => {
+                const remain = container.querySelectorAll('.confetti-piece');
+                remain.forEach(el => el.remove());
+            }, 6000);
+        }
 
-      // slight delay to let the mail client open, then show wait message.
-      // but we want to show wait after mailto triggered, however some browsers
-      // may block popups, but mailto is a navigation. we show wait after short delay.
-      setTimeout(() => {
-        showWaitState();
-      }, 150);
-    }
+        // ─── Keyboard support (Enter / Space) ───
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'button');
+        card.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                card.click();
+            }
+        });
 
-    // handle form submission
-    function handleSubmit(e) {
-      e.preventDefault();
+        // ─── Small initial hint: auto-flip after 4s? No – let user discover ───
+        // But we can add a tiny pulse to the hint
+        console.log('💙 Happy Father\'s Day from Wan & Senette!');
+    </script>
 
-      const address = addressInput.value.trim();
-      if (!address) {
-        // simple client-side validation: focus & shake? we just highlight.
-        addressInput.focus();
-        addressInput.style.borderColor = '#b91c1c';
-        addressInput.style.boxShadow = '0 0 0 4px rgba(185, 28, 28, 0.08)';
-        setTimeout(() => {
-          addressInput.style.borderColor = '#e2e9ed';
-          addressInput.style.boxShadow = 'none';
-        }, 800);
-        return;
-      }
-
-      // disable button to prevent double send
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = `<span>Sending…</span>`;
-
-      // send via mailto (opens default email client)
-      sendViaMailto(address);
-
-      // re-enable button after a while (but keep wait visible)
-      setTimeout(() => {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = `<span>Get sage advice</span>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>`;
-      }, 2000);
-
-      // clear input (optional, but user can see it's sent)
-      // we keep the address visible, but we could clear if we want. we keep it.
-      // we also show wait message (already called inside sendViaMailto)
-      // but in case mailto is blocked or not triggered, we also show wait.
-      showWaitState();
-    }
-
-    // reset border on input focus
-    addressInput.addEventListener('focus', function() {
-      this.style.borderColor = '#0b2b26';
-      this.style.boxShadow = '0 0 0 4px rgba(11, 43, 38, 0.08)';
-    });
-
-    addressInput.addEventListener('blur', function() {
-      if (!this.value.trim()) {
-        this.style.borderColor = '#e2e9ed';
-        this.style.boxShadow = 'none';
-      } else {
-        this.style.borderColor = '#0b2b26';
-        this.style.boxShadow = '0 0 0 4px rgba(11, 43, 38, 0.04)';
-      }
-    });
-
-    // form submit listener
-    form.addEventListener('submit', handleSubmit);
-
-    // if the user manually changes the address after submission, we could hide wait?
-    // but we keep it visible as per spec: once submitted, they wait.
-    // we also prefill wait message hidden initially.
-    // resetWaitState() is not used after first submit, but we keep for consistency.
-    // additional: if someone clicks again after wait, we re-trigger.
-    // also if they try to submit again, we send again (but we show wait again)
-    // we handle that gracefully.
-    // optional: if page loads, wait is hidden.
-    window.addEventListener('load', function() {
-      resetWaitState();
-      // ensure button is enabled
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = `<span>Get sage advice</span>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>`;
-    });
-
-  })();
-</script>
-
-<!-- note: the mailto approach sends the info to wanderlei@turfsages.com directly via the user's default email client. 
-     It also shows the wait message after submission, as requested. 
-     The design is modern, minimal, and avoids AI-generated clichés. -->
 </body>
 </html>
