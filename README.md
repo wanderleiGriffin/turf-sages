@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TurfSage | Expert Lawn Care</title>
 
-    <!-- Font Awesome for Icons (Makes it look pro) -->
+    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
@@ -31,7 +31,7 @@
 
         /* ----- MAIN CARD (Glassmorphism / Secure feel) ----- */
         .container {
-            max-width: 640px;
+            max-width: 680px;
             width: 100%;
             background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(6px);
@@ -176,15 +176,59 @@
             gap: 1rem;
         }
 
-        /* ----- SUBMIT BUTTON ----- */
+        /* ----- ACTION BUTTONS ROW (Call + Submit side by side) ----- */
+        .action-row {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 1rem;
+            margin-top: 0.3rem;
+            align-items: stretch;
+        }
+
+        /* Call Button (Phone) */
+        .call-btn {
+            background: #ffffff;
+            color: #1f452b;
+            border: 2px solid #1f452b;
+            padding: 1.1rem 1.2rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.7rem;
+            text-decoration: none;
+            font-family: inherit;
+            box-shadow: 0 4px 12px rgba(31, 69, 43, 0.08);
+        }
+
+        .call-btn:hover {
+            background: #1f452b;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(31, 69, 43, 0.20);
+        }
+
+        .call-btn:active {
+            transform: translateY(0px);
+        }
+
+        .call-btn i {
+            font-size: 1.2rem;
+        }
+
+        /* Submit Button */
         .submit-btn {
             background: #1f452b;
             color: white;
             border: none;
-            padding: 1.1rem 2rem;
+            padding: 1.1rem 1.5rem;
             border-radius: 60px;
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             letter-spacing: 0.3px;
             cursor: pointer;
             transition: all 0.2s ease;
@@ -192,9 +236,9 @@
             align-items: center;
             justify-content: center;
             gap: 0.8rem;
-            margin-top: 0.3rem;
             box-shadow: 0 8px 24px rgba(31, 69, 43, 0.25);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            font-family: inherit;
         }
 
         .submit-btn:hover {
@@ -210,6 +254,13 @@
 
         .submit-btn i {
             font-size: 1.1rem;
+        }
+
+        /* Disabled state */
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
         }
 
         /* ----- SUCCESS MESSAGE (hidden by default) ----- */
@@ -251,7 +302,7 @@
         }
 
         /* ----- RESPONSIVE ----- */
-        @media (max-width: 520px) {
+        @media (max-width: 600px) {
             .container {
                 padding: 1.8rem 1.2rem;
                 border-radius: 1.8rem;
@@ -266,6 +317,22 @@
                 gap: 0.8rem;
             }
 
+            /* Stack buttons vertically on mobile */
+            .action-row {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+
+            .call-btn {
+                padding: 0.9rem 1rem;
+                font-size: 1rem;
+            }
+
+            .submit-btn {
+                padding: 0.9rem 1rem;
+                font-size: 1rem;
+            }
+
             .trust-badge {
                 border-radius: 28px;
                 padding: 0.6rem 1rem;
@@ -274,11 +341,6 @@
 
             .trust-badge span {
                 font-size: 0.75rem;
-            }
-
-            .submit-btn {
-                font-size: 1rem;
-                padding: 1rem 1.5rem;
             }
         }
 
@@ -312,15 +374,14 @@
         </div>
 
         <!-- 
-            ⚡ IMPORTANT: This form uses Formspree to send emails.
-            Your submissions will go to wanderlei.griffin11@gmail.com 
+            ⚡ Form: Sends to wanderlei.griffin11@gmail.com via Formspree
         -->
         <form id="turf-form" action="https://formspree.io/f/xqakvwzr" method="POST">
 
-            <!-- Honeypot: helps block spam (keeps the form secure) -->
+            <!-- Honeypot: helps block spam -->
             <input type="text" name="_gotcha" style="display:none" />
 
-            <!-- Customer Address Input -->
+            <!-- Customer Address -->
             <div class="form-group">
                 <label for="address"><i class="fas fa-map-pin"></i> Your full street address</label>
                 <input 
@@ -332,7 +393,7 @@
                 >
             </div>
 
-            <!-- Optional: name & phone to help you serve them better -->
+            <!-- Name & Phone -->
             <div class="form-row">
                 <div class="form-group">
                     <label for="name"><i class="fas fa-user"></i> Your name</label>
@@ -354,7 +415,7 @@
                 </div>
             </div>
 
-            <!-- Extra note (optional) -->
+            <!-- Extra note -->
             <div class="form-group">
                 <label for="note"><i class="fas fa-pencil-alt"></i> Anything else?</label>
                 <input 
@@ -365,12 +426,20 @@
                 >
             </div>
 
-            <!-- Submit -->
-            <button type="submit" class="submit-btn">
-                <i class="fas fa-paper-plane"></i> Get my free estimate
-            </button>
+            <!-- ACTION ROW: Call + Submit side by side -->
+            <div class="action-row">
+                <!-- CALL BUTTON — your phone number -->
+                <a href="tel:+16015978142" class="call-btn">
+                    <i class="fas fa-phone"></i> Call Us
+                </a>
 
-            <!-- Success message (shows after submission) -->
+                <!-- SUBMIT BUTTON -->
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <i class="fas fa-paper-plane"></i> Get Estimate
+                </button>
+            </div>
+
+            <!-- Success message (shows after form submission) -->
             <div id="success-message">
                 <i class="fas fa-check-circle"></i>
                 <strong>You're all set, neighbor!</strong><br>
@@ -380,47 +449,32 @@
 
         </form>
 
-        <!-- Footer security reassurance -->
+        <!-- Footer security reassurance + phone number visible -->
         <div class="secure-note">
             <i class="fas fa-lock"></i> 
-            This form is SSL-secured &mdash; your information is safe with us. 
+            SSL-secured &bull; 
+            <i class="fas fa-phone" style="margin-left:0.3rem;"></i> 
+            <strong>601-597-8142</strong> &bull; 
             <i class="fas fa-tree" style="margin-left:0.3rem;"></i>
         </div>
 
     </div>
 
-    <!-- ----- JAVASCRIPT: handle form submit, show success, send email ----- -->
+    <!-- ----- JAVASCRIPT: handle form submit via fetch (no redirect) ----- -->
     <script>
         (function() {
             const form = document.getElementById('turf-form');
             const successDiv = document.getElementById('success-message');
+            const submitBtn = document.getElementById('submitBtn');
 
             form.addEventListener('submit', function(e) {
-                // We let the form submit naturally to Formspree.
-                // But we show the success message immediately for a smooth UX.
-                // The actual email is sent by Formspree's backend.
-
-                // Show success
-                successDiv.style.display = 'block';
-
-                // Optional: disable the submit button to prevent double-clicks
-                const btn = form.querySelector('.submit-btn');
-                btn.disabled = true;
-                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-
-                // The form will POST to Formspree. 
-                // If you want to fully intercept and use fetch() instead, 
-                // you can, but the default action works perfectly.
-
-                // Let the form submit naturally after a tiny delay 
-                // so the user sees the success message.
-                // (Formspree will redirect to a default thank-you page unless we prevent it.)
-                // To keep the user on YOUR page, we use fetch() to send data silently.
-
-                // ---- BETTER APPROACH: Use fetch() to send without redirect ----
-                e.preventDefault(); // stop the default page reload
+                e.preventDefault(); // prevent page reload
 
                 const formData = new FormData(form);
+
+                // Show loading state
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
 
                 fetch(form.action, {
                     method: 'POST',
@@ -431,37 +485,34 @@
                 })
                 .then(response => {
                     if (response.ok) {
-                        // success — we already show the message
-                        btn.innerHTML = '<i class="fas fa-check"></i> Sent!';
-                        form.reset(); // clear fields
+                        // Show success
+                        successDiv.style.display = 'block';
+                        submitBtn.innerHTML = '<i class="fas fa-check"></i> Sent!';
+                        form.reset(); // clear all fields
                     } else {
-                        // something went wrong
                         alert('Oops! Something went wrong. Please try again or call us directly.');
-                        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Get my free estimate';
-                        btn.disabled = false;
+                        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Get Estimate';
+                        submitBtn.disabled = false;
                         successDiv.style.display = 'none';
                     }
                 })
                 .catch(error => {
                     alert('Network error. Please check your connection and try again.');
-                    btn.innerHTML = '<i class="fas fa-paper-plane"></i> Get my free estimate';
-                    btn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Get Estimate';
+                    submitBtn.disabled = false;
                     successDiv.style.display = 'none';
                 });
-
-                // keep the success visible, but we handle it above
             });
 
         })();
     </script>
 
     <!-- 
-        🔐 IMPORTANT SECURITY NOTES FOR YOU:
-        1. This form uses Formspree — a trusted service that forwards submissions to your email.
-        2. The form is protected with a honeypot (hidden _gotcha field) to reduce spam.
-        3. All data is sent over HTTPS.
-        4. You can change the "action" URL if you switch to a different backend.
-        5. For extra security, add a reCAPTCHA via Formspree's dashboard (free tier available).
+        🔐 NOTES:
+        - Phone number: 601-597-8142 appears in the Call button AND in the footer.
+        - The "Call Us" button uses tel: protocol — on mobile it opens the dialer.
+        - Form submissions go to wanderlei.griffin11@gmail.com via Formspree.
+        - All data is sent over HTTPS.
     -->
 
 </body>
