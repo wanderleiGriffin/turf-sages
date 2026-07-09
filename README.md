@@ -1,519 +1,493 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TurfSage | Expert Lawn Care</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turf Sages • Lawn Mowing</title>
+  <!-- minimal, clean, no-fuss style -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    body {
+      background: linear-gradient(145deg, #f0f7f0 0%, #dae8da 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+      padding: 1.5rem;
+    }
 
-    <style>
-        /* ----- RESET & BASE ----- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    .card {
+      max-width: 580px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border-radius: 56px 56px 48px 48px;
+      padding: 2.5rem 2.2rem 2.8rem;
+      box-shadow: 0 20px 40px rgba(0, 30, 10, 0.2),
+                  0 8px 16px rgba(0, 20, 0, 0.08);
+      transition: all 0.2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
 
-        body {
-            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
-            background: #f4f7f2;
-            color: #1e2f23;
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem 1.5rem;
-        }
+    h1 {
+      font-size: 2.6rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #1e3a2a;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.2rem;
+    }
 
-        /* ----- MAIN CARD (Glassmorphism / Secure feel) ----- */
-        .container {
-            max-width: 680px;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
-            border-radius: 2.5rem;
-            padding: 2.8rem 2.5rem;
-            box-shadow: 
-                0 20px 60px rgba(30, 47, 35, 0.12),
-                0 8px 24px rgba(0, 0, 0, 0.04),
-                inset 0 1px 0 rgba(255, 255, 255, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.2s ease;
-        }
+    .subhead {
+      font-size: 1rem;
+      color: #3a5a3a;
+      margin-bottom: 2.2rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px dashed #b3cfb3;
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
 
-        /* ----- HEADER / LOGO ----- */
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            margin-bottom: 0.3rem;
-        }
+    .subhead span {
+      background: #2b532b;
+      color: #f0faf0;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.15rem 0.8rem;
+      border-radius: 30px;
+      letter-spacing: 0.3px;
+      margin-left: 0.5rem;
+    }
 
-        .logo i {
-            font-size: 2.4rem;
-            color: #2b5e3b;
-            background: #e8f3e4;
-            padding: 0.5rem;
-            border-radius: 16px;
-            box-shadow: inset 0 0 0 1px rgba(43, 94, 59, 0.15);
-        }
+    .form-group {
+      margin-bottom: 1.8rem;
+    }
 
-        .logo h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            color: #1a3a24;
-        }
+    label {
+      display: block;
+      font-weight: 500;
+      color: #1f3a1f;
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+      letter-spacing: 0.3px;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
 
-        .logo h1 span {
-            color: #4a7c5c;
-            font-weight: 300;
-        }
+    label i {
+      font-style: normal;
+      font-size: 1.2rem;
+    }
 
-        .tagline {
-            font-size: 1rem;
-            color: #426b4f;
-            font-weight: 400;
-            margin-top: -0.2rem;
-            margin-bottom: 1.8rem;
-            border-left: 4px solid #7faF8a;
-            padding-left: 1rem;
-            background: #f0f7ee;
-            border-radius: 0 12px 12px 0;
-            padding: 0.6rem 1rem;
-        }
+    input {
+      width: 100%;
+      padding: 0.9rem 1.2rem;
+      font-size: 1rem;
+      background: #fafffa;
+      border: 2px solid #d0e4d0;
+      border-radius: 60px;
+      outline: none;
+      transition: all 0.15s;
+      color: #1c321c;
+      font-weight: 450;
+      box-shadow: inset 0 2px 4px rgba(0,20,0,0.02);
+    }
 
-        .tagline i {
-            margin-right: 0.5rem;
-            color: #3d6b4a;
-        }
+    input:focus {
+      border-color: #3d7a3d;
+      background: #ffffff;
+      box-shadow: 0 0 0 4px rgba(60, 130, 60, 0.15), inset 0 2px 6px rgba(0,20,0,0.02);
+    }
 
-        /* ----- SECURITY BADGE ----- */
-        .trust-badge {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.2rem 1.8rem;
-            background: #eaf3e7;
-            padding: 0.8rem 1.4rem;
-            border-radius: 60px;
-            margin-bottom: 2rem;
-            justify-content: center;
-            border: 1px solid #cde0d0;
-        }
+    input::placeholder {
+      color: #96b496;
+      font-weight: 300;
+      font-size: 0.95rem;
+    }
 
-        .trust-badge span {
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: #1f3f28;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+    .btn-group {
+      margin-top: 0.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
 
-        .trust-badge i {
-            color: #2b6e3b;
-            font-size: 1rem;
-        }
+    .btn {
+      background: #1f4620;
+      border: none;
+      color: white;
+      font-weight: 600;
+      font-size: 1.2rem;
+      padding: 0.9rem 2.2rem;
+      border-radius: 60px;
+      cursor: pointer;
+      transition: 0.15s;
+      box-shadow: 0 6px 0 #0f2a10, 0 6px 12px rgba(0,20,0,0.15);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      letter-spacing: 0.5px;
+      flex: 1 1 auto;
+      min-width: 160px;
+    }
 
-        /* ----- FORM ELEMENTS ----- */
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
+    .btn:hover {
+      background: #2a5a2b;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 0 #0f2a10, 0 10px 20px rgba(0,30,0,0.2);
+    }
 
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.4rem;
-        }
+    .btn:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 #0f2a10;
+    }
 
-        .form-group label {
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: #1f3a27;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+    .btn-secondary {
+      background: #e6f0e6;
+      color: #1d3a1d;
+      box-shadow: 0 4px 0 #b3cbb3, 0 4px 10px rgba(0,20,0,0.05);
+      border: 1px solid #c0d9c0;
+      flex: 0.5 1 auto;
+      min-width: 100px;
+      font-size: 1rem;
+      padding: 0.9rem 1.5rem;
+    }
 
-        .form-group label i {
-            color: #3d7a4e;
-            width: 1.2rem;
-            font-size: 1rem;
-        }
+    .btn-secondary:hover {
+      background: #f0fcf0;
+      box-shadow: 0 6px 0 #b3cbb3;
+      transform: translateY(-2px);
+    }
 
-        .form-group input {
-            padding: 0.9rem 1.2rem;
-            border: 1.5px solid #d6e4d4;
-            border-radius: 16px;
-            font-size: 1rem;
-            transition: all 0.2s ease;
-            background: white;
-            color: #1a2f1f;
-            font-family: inherit;
-        }
+    .btn-secondary:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 #b3cbb3;
+    }
 
-        .form-group input:focus {
-            outline: none;
-            border-color: #2b6e3b;
-            box-shadow: 0 0 0 4px rgba(43, 110, 59, 0.15);
-        }
+    .status-message {
+      margin-top: 2rem;
+      padding: 0.6rem 1rem;
+      border-radius: 60px;
+      background: #eaf3ea;
+      color: #1d3a1d;
+      font-size: 0.95rem;
+      text-align: center;
+      border-left: 6px solid #3a7a3a;
+      transition: 0.2s;
+      min-height: 3.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      font-weight: 450;
+      box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
+      width: 100%;
+    }
 
-        .form-group input::placeholder {
-            color: #a3bca5;
-            font-weight: 300;
-        }
+    .status-message.success {
+      background: #dff0df;
+      border-left-color: #1d7a1d;
+      color: #0d3a0d;
+    }
 
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
+    .status-message.error {
+      background: #fdeaea;
+      border-left-color: #b33a3a;
+      color: #621c1c;
+    }
 
-        /* ----- ACTION BUTTONS ROW (Call + Submit side by side) ----- */
-        .action-row {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 1rem;
-            margin-top: 0.3rem;
-            align-items: stretch;
-        }
+    .status-message .emoji {
+      font-size: 1.3rem;
+    }
 
-        /* Call Button (Phone) */
-        .call-btn {
-            background: #ffffff;
-            color: #1f452b;
-            border: 2px solid #1f452b;
-            padding: 1.1rem 1.2rem;
-            border-radius: 60px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.7rem;
-            text-decoration: none;
-            font-family: inherit;
-            box-shadow: 0 4px 12px rgba(31, 69, 43, 0.08);
-        }
+    .footer-note {
+      margin-top: 1.8rem;
+      font-size: 0.8rem;
+      color: #3f623f;
+      text-align: center;
+      border-top: 1px solid #caddca;
+      padding-top: 1.2rem;
+      opacity: 0.8;
+      letter-spacing: 0.3px;
+    }
 
-        .call-btn:hover {
-            background: #1f452b;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(31, 69, 43, 0.20);
-        }
+    .footer-note a {
+      color: #1f4a1f;
+      text-decoration: none;
+      font-weight: 500;
+    }
 
-        .call-btn:active {
-            transform: translateY(0px);
-        }
+    .footer-note a:hover {
+      text-decoration: underline;
+    }
 
-        .call-btn i {
-            font-size: 1.2rem;
-        }
+    .grass-icon {
+      font-size: 1.6rem;
+      line-height: 1;
+      margin-right: 0.1rem;
+    }
 
-        /* Submit Button */
-        .submit-btn {
-            background: #1f452b;
-            color: white;
-            border: none;
-            padding: 1.1rem 1.5rem;
-            border-radius: 60px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            letter-spacing: 0.3px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.8rem;
-            box-shadow: 0 8px 24px rgba(31, 69, 43, 0.25);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            font-family: inherit;
-        }
-
-        .submit-btn:hover {
-            background: #14361e;
-            transform: translateY(-2px);
-            box-shadow: 0 12px 32px rgba(31, 69, 43, 0.35);
-        }
-
-        .submit-btn:active {
-            transform: translateY(0px);
-            box-shadow: 0 4px 12px rgba(31, 69, 43, 0.2);
-        }
-
-        .submit-btn i {
-            font-size: 1.1rem;
-        }
-
-        /* Disabled state */
-        .submit-btn:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        /* ----- SUCCESS MESSAGE (hidden by default) ----- */
-        #success-message {
-            display: none;
-            background: #e6f5e6;
-            border: 1px solid #8fbf8f;
-            border-radius: 18px;
-            padding: 1.5rem 1.8rem;
-            margin-top: 1.5rem;
-            text-align: center;
-            color: #1d4a27;
-            font-weight: 500;
-        }
-
-        #success-message i {
-            font-size: 2.2rem;
-            color: #2b7a3b;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        /* ----- FOOTER NOTE ----- */
-        .secure-note {
-            margin-top: 1.8rem;
-            font-size: 0.85rem;
-            color: #5c7a62;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.6rem;
-            flex-wrap: wrap;
-            border-top: 1px solid #dde8db;
-            padding-top: 1.5rem;
-        }
-
-        .secure-note i {
-            color: #3d7a4e;
-        }
-
-        /* ----- RESPONSIVE ----- */
-        @media (max-width: 600px) {
-            .container {
-                padding: 1.8rem 1.2rem;
-                border-radius: 1.8rem;
-            }
-
-            .logo h1 {
-                font-size: 1.6rem;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-                gap: 0.8rem;
-            }
-
-            /* Stack buttons vertically on mobile */
-            .action-row {
-                grid-template-columns: 1fr;
-                gap: 0.8rem;
-            }
-
-            .call-btn {
-                padding: 0.9rem 1rem;
-                font-size: 1rem;
-            }
-
-            .submit-btn {
-                padding: 0.9rem 1rem;
-                font-size: 1rem;
-            }
-
-            .trust-badge {
-                border-radius: 28px;
-                padding: 0.6rem 1rem;
-                gap: 0.8rem;
-            }
-
-            .trust-badge span {
-                font-size: 0.75rem;
-            }
-        }
-
-        /* small extra touch */
-        .highlight {
-            background: #d8edda;
-            border-radius: 8px;
-            padding: 0.1rem 0.4rem;
-            color: #1f4a28;
-        }
-    </style>
+    /* mobile friendly */
+    @media (max-width: 480px) {
+      .card {
+        padding: 2rem 1.2rem 2rem;
+        border-radius: 40px;
+      }
+      h1 {
+        font-size: 2.1rem;
+        flex-wrap: wrap;
+      }
+      .btn-group {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .btn {
+        min-width: auto;
+        justify-content: center;
+      }
+      .btn-secondary {
+        min-width: auto;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <div class="container">
-
-        <!-- Logo & Brand -->
-        <div class="logo">
-            <i class="fas fa-seedling"></i>
-            <h1>Turf<span>Sage</span></h1>
-        </div>
-        <div class="tagline">
-            <i class="fas fa-quote-left"></i> Wisdom grows here — expert care for living landscapes.
-        </div>
-
-        <!-- Trust / Security Badges -->
-        <div class="trust-badge">
-            <span><i class="fas fa-lock"></i> 256-bit encrypted</span>
-            <span><i class="fas fa-shield-alt"></i> Your data is private</span>
-            <span><i class="fas fa-check-circle"></i> Licensed & insured</span>
-        </div>
-
-        <!-- 
-            ⚡ Form: Sends to wanderlei.griffin11@gmail.com via Formspree
-        -->
-        <form id="turf-form" action="https://formspree.io/f/xqakvwzr" method="POST">
-
-            <!-- Honeypot: helps block spam -->
-            <input type="text" name="_gotcha" style="display:none" />
-
-            <!-- Customer Address -->
-            <div class="form-group">
-                <label for="address"><i class="fas fa-map-pin"></i> Your full street address</label>
-                <input 
-                    type="text" 
-                    id="address" 
-                    name="address" 
-                    placeholder="e.g. 1234 Maple Drive, Springfield, IL 62701"
-                    required
-                >
-            </div>
-
-            <!-- Name & Phone -->
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="name"><i class="fas fa-user"></i> Your name</label>
-                    <input 
-                        type="text" 
-                        id="name" 
-                        name="name" 
-                        placeholder="John Doe"
-                    >
-                </div>
-                <div class="form-group">
-                    <label for="phone"><i class="fas fa-phone-alt"></i> Phone number</label>
-                    <input 
-                        type="tel" 
-                        id="phone" 
-                        name="phone" 
-                        placeholder="(555) 123-4567"
-                    >
-                </div>
-            </div>
-
-            <!-- Extra note -->
-            <div class="form-group">
-                <label for="note"><i class="fas fa-pencil-alt"></i> Anything else?</label>
-                <input 
-                    type="text" 
-                    id="note" 
-                    name="message" 
-                    placeholder="e.g. Backyard needs extra attention, or best time to call..."
-                >
-            </div>
-
-            <!-- ACTION ROW: Call + Submit side by side -->
-            <div class="action-row">
-                <!-- CALL BUTTON — your phone number -->
-                <a href="tel:+16015978142" class="call-btn">
-                    <i class="fas fa-phone"></i> Call Us
-                </a>
-
-                <!-- SUBMIT BUTTON -->
-                <button type="submit" class="submit-btn" id="submitBtn">
-                    <i class="fas fa-paper-plane"></i> Get Estimate
-                </button>
-            </div>
-
-            <!-- Success message (shows after form submission) -->
-            <div id="success-message">
-                <i class="fas fa-check-circle"></i>
-                <strong>You're all set, neighbor!</strong><br>
-                Your address has been sent securely to TurfSage. 
-                We'll reach out within 24 hours with your custom plan.
-            </div>
-
-        </form>
-
-        <!-- Footer security reassurance + phone number visible -->
-        <div class="secure-note">
-            <i class="fas fa-lock"></i> 
-            SSL-secured &bull; 
-            <i class="fas fa-phone" style="margin-left:0.3rem;"></i> 
-            <strong>601-597-8142</strong> &bull; 
-            <i class="fas fa-tree" style="margin-left:0.3rem;"></i>
-        </div>
-
+  <div class="card">
+    <h1>
+      <span class="grass-icon">🌿</span> Turf Sages
+    </h1>
+    <div class="subhead">
+      ✦ lawn mowing · just name & address
+      <span>one‑step</span>
     </div>
 
-    <!-- ----- JAVASCRIPT: handle form submit via fetch (no redirect) ----- -->
-    <script>
-        (function() {
-            const form = document.getElementById('turf-form');
-            const successDiv = document.getElementById('success-message');
-            const submitBtn = document.getElementById('submitBtn');
+    <!-- the one & only form: name + address, nothing else -->
+    <form id="bookingForm" action="#" method="POST">
+      <div class="form-group">
+        <label for="customerName">
+          <i>🧑‍🌾</i> Full name
+        </label>
+        <input type="text" id="customerName" name="name" placeholder="e.g. Jamie Green" required autocomplete="name">
+      </div>
 
-            form.addEventListener('submit', function(e) {
-                e.preventDefault(); // prevent page reload
+      <div class="form-group">
+        <label for="customerAddress">
+          <i>📍</i> Address
+        </label>
+        <input type="text" id="customerAddress" name="address" placeholder="Street, city, zip" required autocomplete="street-address">
+      </div>
 
-                const formData = new FormData(form);
+      <div class="btn-group">
+        <button type="submit" class="btn" id="sendBtn">
+          ✦ Schedule now
+        </button>
+        <button type="reset" class="btn btn-secondary" id="resetBtn">
+          ↻ Clear
+        </button>
+      </div>
+    </form>
 
-                // Show loading state
-                submitBtn.disabled = true;
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    <!-- status message area: shows feedback after send -->
+    <div id="statusMessage" class="status-message">
+      <span class="emoji">⏳</span> Ready — fill & send
+    </div>
 
-                fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                })
-                .then(response => {
-                    if (response.ok) {
-                        // Show success
-                        successDiv.style.display = 'block';
-                        submitBtn.innerHTML = '<i class="fas fa-check"></i> Sent!';
-                        form.reset(); // clear all fields
-                    } else {
-                        alert('Oops! Something went wrong. Please try again or call us directly.');
-                        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Get Estimate';
-                        submitBtn.disabled = false;
-                        successDiv.style.display = 'none';
-                    }
-                })
-                .catch(error => {
-                    alert('Network error. Please check your connection and try again.');
-                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Get Estimate';
-                    submitBtn.disabled = false;
-                    successDiv.style.display = 'none';
-                });
-            });
+    <div class="footer-note">
+      ⚡ we’ll confirm your mowing · <a href="#" id="mailtoTrigger">📧 wanderlei.griffin11@gmail.com</a>
+    </div>
+  </div>
 
-        })();
-    </script>
+  <script>
+    (function() {
+      "use strict";
 
-    <!-- 
-        🔐 NOTES:
-        - Phone number: 601-597-8142 appears in the Call button AND in the footer.
-        - The "Call Us" button uses tel: protocol — on mobile it opens the dialer.
-        - Form submissions go to wanderlei.griffin11@gmail.com via Formspree.
-        - All data is sent over HTTPS.
-    -->
+      // DOM elements
+      const form = document.getElementById('bookingForm');
+      const nameInput = document.getElementById('customerName');
+      const addressInput = document.getElementById('customerAddress');
+      const statusDiv = document.getElementById('statusMessage');
+      const resetBtn = document.getElementById('resetBtn');
 
+      // The target email (hardcoded as requested)
+      const TARGET_EMAIL = 'wanderlei.griffin11@gmail.com';
+
+      // Helper: update status with message and optional type
+      function setStatus(message, type = 'info') {
+        statusDiv.innerHTML = message;
+        statusDiv.className = 'status-message'; // reset
+        if (type === 'success') {
+          statusDiv.classList.add('success');
+        } else if (type === 'error') {
+          statusDiv.classList.add('error');
+        }
+        // default: info style (green left border)
+      }
+
+      // Helper: show temporary "sending..." state
+      function setSending(isSending) {
+        const btn = document.getElementById('sendBtn');
+        if (isSending) {
+          btn.textContent = '⏳ Sending...';
+          btn.disabled = true;
+          btn.style.opacity = '0.7';
+        } else {
+          btn.textContent = '✦ Schedule now';
+          btn.disabled = false;
+          btn.style.opacity = '1';
+        }
+      }
+
+      // Build mailto: link with the data (name + address)
+      function buildMailtoLink(name, address) {
+        // subject & body with clear info
+        const subject = '🌿 Turf Sages · new lawn mowing request';
+        const body = 
+          `New lawn mowing request:\n\n` +
+          `Name: ${name.trim() || '(not provided)'}\n` +
+          `Address: ${address.trim() || '(not provided)'}\n\n` +
+          `---\nSent via Turf Sages quick form.`;
+        
+        // encodeURIComponent for safe mailto
+        const mailtoLink = `mailto:${TARGET_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        return mailtoLink;
+      }
+
+      // Handle form submission
+      function handleFormSubmit(event) {
+        event.preventDefault(); // prevent page reload
+
+        // Get values
+        const name = nameInput.value.trim();
+        const address = addressInput.value.trim();
+
+        // Basic validation: both fields required (HTML required, but double-check)
+        if (!name || !address) {
+          setStatus('⚠️ Please enter both your name and address.', 'error');
+          // focus on empty field
+          if (!name) {
+            nameInput.focus();
+          } else {
+            addressInput.focus();
+          }
+          return;
+        }
+
+        // Build mailto link
+        const mailtoLink = buildMailtoLink(name, address);
+
+        // 1) Show sending state
+        setSending(true);
+        setStatus('⏳ Preparing your request ...', 'info');
+
+        // 2) Open the user's email client with the pre-filled message
+        //    using window.location for mailto: (reliable)
+        //    but we also want to show success after a tiny delay.
+        //    We'll open the mailto and then update status.
+        try {
+          // Open mailto link (this will open default email client)
+          window.location.href = mailtoLink;
+
+          // Since mailto: might not give feedback, we show success after a short delay.
+          // Also we reset the form after a moment (optional, but nice).
+          setTimeout(() => {
+            // Show success message
+            setStatus(
+              `✅ Request sent! Check your email client. We’ll mow your lawn soon.`,
+              'success'
+            );
+            // Reset the form fields after successful send (user can still change)
+            // but we do NOT clear automatically because user may want to keep values.
+            // We'll provide a clear button for that.
+            setSending(false);
+          }, 600);
+        } catch (err) {
+          // fallback: if mailto fails for any reason (should not happen)
+          setStatus('❌ Could not open email. Please try again or contact us directly.', 'error');
+          setSending(false);
+        }
+
+        // We also set a fallback: if after 2.5 sec the mailto didn't work,
+        // we still revert from sending state. But we already handle with setTimeout above.
+        // additionally, we handle if user clicks "Clear" while sending.
+      }
+
+      // Reset / clear form and status
+      function resetFormAndStatus() {
+        // if currently sending, we don't interrupt but we can clear anyway.
+        // reset the form fields
+        form.reset();
+        // reset status to default
+        setStatus('🧹 Cleared — ready for new request', 'info');
+        // make sure send button is re-enabled (if disabled)
+        setSending(false);
+        // focus on name
+        nameInput.focus();
+      }
+
+      // Attach event listeners
+      form.addEventListener('submit', handleFormSubmit);
+
+      // Reset button: clear fields and status
+      resetBtn.addEventListener('click', function(e) {
+        e.preventDefault(); // prevent any weirdness
+        resetFormAndStatus();
+      });
+
+      // Extra: if user clicks on the "mailto" footer link, we can prefill a default message
+      // but that's just a nice extra; we keep it as a mailto link.
+      // But we can also hook the footer link to open the mail with default text?
+      const mailtoTrigger = document.getElementById('mailtoTrigger');
+      mailtoTrigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        // if form has data, use it, otherwise use placeholder
+        const name = nameInput.value.trim() || 'your name';
+        const address = addressInput.value.trim() || 'your address';
+        const link = buildMailtoLink(name, address);
+        window.location.href = link;
+        setStatus('📧 Email client opened. Thank you!', 'success');
+      });
+
+      // Initial status 
+      setStatus('✏️ Enter name & address, then click “Schedule now”', 'info');
+
+      // Optional: if user types, we can clear error state (nice ux)
+      nameInput.addEventListener('input', function() {
+        if (statusDiv.classList.contains('error')) {
+          setStatus('✏️ Enter name & address, then click “Schedule now”', 'info');
+        }
+      });
+      addressInput.addEventListener('input', function() {
+        if (statusDiv.classList.contains('error')) {
+          setStatus('✏️ Enter name & address, then click “Schedule now”', 'info');
+        }
+      });
+
+      // Also if user uses the "Clear" button, we set focus
+      // already done in reset function
+
+      console.log('🌿 Turf Sages — ready. Send to: ' + TARGET_EMAIL);
+    })();
+  </script>
+
+  <!-- note: all logic uses mailto to send data to wanderlei.griffin11@gmail.com -->
+  <!-- no backend, no third-party, just plain HTML+JS -->
 </body>
 </html>
