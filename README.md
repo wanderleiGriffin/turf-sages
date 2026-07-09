@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Turf Sages • Lawn Mowing</title>
-  <!-- minimal, clean, no-fuss style -->
+  <title>Turf Sages · lawn mowing Hockley TX</title>
+  <!-- Google Fonts & modern reset -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -13,481 +16,730 @@
     }
 
     body {
-      background: linear-gradient(145deg, #f0f7f0 0%, #dae8da 100%);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f6f9f5;
       min-height: 100vh;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+      justify-content: center;
       padding: 1.5rem;
+      background-image: radial-gradient(circle at 10% 30%, rgba(60, 130, 70, 0.03) 0%, transparent 30%),
+                        radial-gradient(circle at 90% 70%, rgba(40, 100, 50, 0.04) 0%, transparent 40%);
     }
 
     .card {
-      max-width: 580px;
+      max-width: 720px;
       width: 100%;
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-      border-radius: 56px 56px 48px 48px;
-      padding: 2.5rem 2.2rem 2.8rem;
-      box-shadow: 0 20px 40px rgba(0, 30, 10, 0.2),
-                  0 8px 16px rgba(0, 20, 0, 0.08);
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 48px;
+      padding: 2.8rem 2.8rem 3.2rem;
+      box-shadow: 0 30px 60px -20px rgba(20, 50, 30, 0.25),
+                  0 8px 24px rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.5);
       transition: all 0.2s ease;
-      border: 1px solid rgba(255, 255, 255, 0.4);
     }
 
-    h1 {
-      font-size: 2.6rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      color: #1e3a2a;
+    /* header */
+    .logo {
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.6rem;
     }
 
-    .subhead {
-      font-size: 1rem;
-      color: #3a5a3a;
-      margin-bottom: 2.2rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 2px dashed #b3cfb3;
-      font-weight: 400;
+    .logo-icon {
+      background: #1e3d2b;
+      color: #e2f0e0;
+      width: 44px;
+      height: 44px;
+      border-radius: 16px;
       display: flex;
       align-items: center;
-      gap: 0.3rem;
-    }
-
-    .subhead span {
-      background: #2b532b;
-      color: #f0faf0;
-      font-size: 0.7rem;
-      font-weight: 600;
-      padding: 0.15rem 0.8rem;
-      border-radius: 30px;
-      letter-spacing: 0.3px;
-      margin-left: 0.5rem;
-    }
-
-    .form-group {
-      margin-bottom: 1.8rem;
-    }
-
-    label {
-      display: block;
+      justify-content: center;
+      font-size: 1.6rem;
       font-weight: 500;
-      color: #1f3a1f;
-      margin-bottom: 0.4rem;
-      font-size: 0.95rem;
-      letter-spacing: 0.3px;
+      box-shadow: 0 6px 12px rgba(30, 61, 43, 0.15);
+    }
+
+    .logo h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #1a2e20;
+      margin-left: 4px;
+    }
+
+    .logo h1 span {
+      font-weight: 400;
+      color: #3f6b4c;
+    }
+
+    .tagline {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #3d5e48;
+      background: rgba(60, 120, 70, 0.08);
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      display: inline-block;
+      margin-top: 0.2rem;
+      letter-spacing: 0.01em;
+      border: 1px solid rgba(60, 120, 70, 0.08);
+      backdrop-filter: blur(4px);
+    }
+
+    .divider {
+      height: 2px;
+      background: linear-gradient(90deg, rgba(50, 110, 60, 0.12), rgba(50, 110, 60, 0.02));
+      margin: 1.8rem 0 2.2rem;
+      width: 100%;
+    }
+
+    /* main form */
+    .form-group {
+      margin-bottom: 2.4rem;
+    }
+
+    .form-label {
+      display: block;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #1c2f22;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.6rem;
       display: flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.5rem;
     }
 
-    label i {
+    .form-label i {
       font-style: normal;
-      font-size: 1.2rem;
+      background: #d9e8db;
+      width: 24px;
+      height: 24px;
+      border-radius: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: #1f402b;
     }
 
-    input {
-      width: 100%;
-      padding: 0.9rem 1.2rem;
-      font-size: 1rem;
-      background: #fafffa;
-      border: 2px solid #d0e4d0;
+    .address-input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      background: white;
       border-radius: 60px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 0 0 1px rgba(40, 80, 50, 0.08);
+      transition: box-shadow 0.25s, border-color 0.2s;
+      border: 1px solid rgba(60, 110, 70, 0.10);
+    }
+
+    .address-input-wrapper:focus-within {
+      box-shadow: 0 8px 20px rgba(40, 90, 50, 0.10), 0 0 0 3px rgba(50, 120, 70, 0.15);
+      border-color: #2c7a3e;
+    }
+
+    .address-input-wrapper input {
+      width: 100%;
+      padding: 1.1rem 1.6rem;
+      border: none;
+      background: transparent;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: #142018;
       outline: none;
-      transition: all 0.15s;
-      color: #1c321c;
-      font-weight: 450;
-      box-shadow: inset 0 2px 4px rgba(0,20,0,0.02);
+      font-family: 'Inter', sans-serif;
+      letter-spacing: -0.01em;
     }
 
-    input:focus {
-      border-color: #3d7a3d;
-      background: #ffffff;
-      box-shadow: 0 0 0 4px rgba(60, 130, 60, 0.15), inset 0 2px 6px rgba(0,20,0,0.02);
+    .address-input-wrapper input::placeholder {
+      color: #8aa392;
+      font-weight: 400;
+      opacity: 0.7;
     }
 
-    input::placeholder {
-      color: #96b496;
-      font-weight: 300;
+    .address-input-wrapper .submit-btn {
+      background: #1e3d2b;
+      color: white;
+      border: none;
+      font-weight: 600;
       font-size: 0.95rem;
+      padding: 0.7rem 1.8rem;
+      border-radius: 60px;
+      margin-right: 0.5rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.3px;
+      box-shadow: 0 4px 10px rgba(30, 61, 43, 0.2);
     }
 
-    .btn-group {
-      margin-top: 0.8rem;
+    .address-input-wrapper .submit-btn:hover {
+      background: #14331f;
+      transform: scale(0.96);
+      box-shadow: 0 6px 14px rgba(20, 50, 30, 0.25);
+    }
+
+    .address-input-wrapper .submit-btn:active {
+      transform: scale(0.94);
+    }
+
+    /* call manager */
+    .call-section {
+      margin: 1.6rem 0 0.2rem;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
+      background: rgba(240, 248, 240, 0.5);
+      padding: 0.9rem 1.6rem;
+      border-radius: 60px;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(60, 120, 70, 0.08);
     }
 
-    .btn {
-      background: #1f4620;
-      border: none;
+    .call-label {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 500;
+      color: #1d3a26;
+      font-size: 0.98rem;
+    }
+
+    .call-label .phone-icon {
+      background: #1e3d2b;
       color: white;
-      font-weight: 600;
-      font-size: 1.2rem;
-      padding: 0.9rem 2.2rem;
-      border-radius: 60px;
-      cursor: pointer;
-      transition: 0.15s;
-      box-shadow: 0 6px 0 #0f2a10, 0 6px 12px rgba(0,20,0,0.15);
+      width: 32px;
+      height: 32px;
+      border-radius: 40px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.4rem;
-      letter-spacing: 0.5px;
-      flex: 1 1 auto;
-      min-width: 160px;
+      font-size: 1.1rem;
     }
 
-    .btn:hover {
-      background: #2a5a2b;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 0 #0f2a10, 0 10px 20px rgba(0,30,0,0.2);
-    }
-
-    .btn:active {
-      transform: translateY(4px);
-      box-shadow: 0 2px 0 #0f2a10;
-    }
-
-    .btn-secondary {
-      background: #e6f0e6;
-      color: #1d3a1d;
-      box-shadow: 0 4px 0 #b3cbb3, 0 4px 10px rgba(0,20,0,0.05);
-      border: 1px solid #c0d9c0;
-      flex: 0.5 1 auto;
-      min-width: 100px;
-      font-size: 1rem;
-      padding: 0.9rem 1.5rem;
-    }
-
-    .btn-secondary:hover {
-      background: #f0fcf0;
-      box-shadow: 0 6px 0 #b3cbb3;
-      transform: translateY(-2px);
-    }
-
-    .btn-secondary:active {
-      transform: translateY(4px);
-      box-shadow: 0 2px 0 #b3cbb3;
-    }
-
-    .status-message {
-      margin-top: 2rem;
-      padding: 0.6rem 1rem;
+    .call-btn {
+      background: transparent;
+      border: 1.5px solid #1e3d2b;
+      color: #1e3d2b;
+      font-weight: 600;
+      padding: 0.5rem 1.8rem;
       border-radius: 60px;
-      background: #eaf3ea;
-      color: #1d3a1d;
+      text-decoration: none;
       font-size: 0.95rem;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.2px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(4px);
+    }
+
+    .call-btn:hover {
+      background: #1e3d2b;
+      color: white;
+      box-shadow: 0 8px 18px rgba(30, 61, 43, 0.2);
+      border-color: #1e3d2b;
+      transform: scale(1.01);
+    }
+
+    .call-btn:active {
+      transform: scale(0.96);
+    }
+
+    .footnote {
+      margin-top: 2.2rem;
+      font-size: 0.8rem;
+      color: #5a7a64;
       text-align: center;
-      border-left: 6px solid #3a7a3a;
-      transition: 0.2s;
-      min-height: 3.2rem;
+      border-top: 1px solid rgba(60, 110, 70, 0.06);
+      padding-top: 1.6rem;
+      letter-spacing: 0.2px;
+      display: flex;
+      justify-content: center;
+      gap: 1.6rem;
+      flex-wrap: wrap;
+    }
+
+    .footnote span {
+      opacity: 0.7;
+    }
+
+    /* toast / status + confirmation overlay */
+    .status-message {
+      margin-top: 1.2rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 60px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      text-align: center;
+      background: rgba(40, 80, 50, 0.03);
+      color: #1a3a22;
+      border: 1px solid rgba(40, 80, 50, 0.02);
+      transition: all 0.2s;
+      min-height: 2.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .status-message.success {
+      background: rgba(40, 130, 60, 0.06);
+      border-color: rgba(40, 130, 60, 0.10);
+      color: #124d20;
+    }
+
+    .status-message.error {
+      background: rgba(180, 70, 50, 0.04);
+      border-color: rgba(180, 70, 50, 0.08);
+      color: #762f1f;
+    }
+
+    /* confirmation overlay (modal) */
+    .confirmation-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(20, 40, 28, 0.45);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 1.5rem;
+    }
+
+    .confirmation-overlay.active {
+      display: flex;
+    }
+
+    .confirmation-modal {
+      background: #ffffff;
+      max-width: 480px;
+      width: 100%;
+      border-radius: 48px;
+      padding: 2.8rem 2.2rem 2.8rem;
+      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15), 0 10px 30px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      animation: modalFadeIn 0.3s ease;
+    }
+
+    @keyframes modalFadeIn {
+      0% { opacity: 0; transform: scale(0.94) translateY(12px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .confirmation-modal .check-icon {
+      background: #1e3d2b;
+      color: white;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.6rem;
+      margin: 0 auto 1.2rem;
+      box-shadow: 0 8px 20px rgba(30, 61, 43, 0.15);
+    }
+
+    .confirmation-modal h2 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #1a2e20;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+    }
+
+    .confirmation-modal .subhead {
+      color: #3f5f49;
+      font-weight: 500;
+      font-size: 1rem;
+      margin-bottom: 1.2rem;
+      border-bottom: 1px solid rgba(60, 110, 70, 0.06);
+      padding-bottom: 1.2rem;
+    }
+
+    .confirmation-modal .address-display {
+      background: #f2f8f2;
+      padding: 0.9rem 1.2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      color: #1a3a22;
+      margin-bottom: 1.6rem;
+      font-size: 1rem;
+      word-break: break-word;
+      border: 1px solid rgba(40, 80, 50, 0.05);
+    }
+
+    .confirmation-modal .call-encouragement {
+      background: #f1f7f0;
+      padding: 1.2rem 1.2rem;
+      border-radius: 30px;
+      margin-bottom: 1.8rem;
+      border: 1px solid rgba(60, 120, 70, 0.06);
+    }
+
+    .confirmation-modal .call-encouragement p {
+      font-size: 0.95rem;
+      color: #1d3a26;
+      font-weight: 500;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
       flex-wrap: wrap;
-      font-weight: 450;
-      box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
-      width: 100%;
     }
 
-    .status-message.success {
-      background: #dff0df;
-      border-left-color: #1d7a1d;
-      color: #0d3a0d;
-    }
-
-    .status-message.error {
-      background: #fdeaea;
-      border-left-color: #b33a3a;
-      color: #621c1c;
-    }
-
-    .status-message .emoji {
+    .confirmation-modal .call-encouragement .big-phone {
       font-size: 1.3rem;
+      font-weight: 700;
+      color: #1e3d2b;
+      letter-spacing: 0.5px;
     }
 
-    .footer-note {
-      margin-top: 1.8rem;
-      font-size: 0.8rem;
-      color: #3f623f;
-      text-align: center;
-      border-top: 1px solid #caddca;
-      padding-top: 1.2rem;
-      opacity: 0.8;
-      letter-spacing: 0.3px;
+    .confirmation-modal .modal-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      justify-content: center;
+      margin-top: 0.2rem;
     }
 
-    .footer-note a {
-      color: #1f4a1f;
-      text-decoration: none;
-      font-weight: 500;
+    .confirmation-modal .modal-btn {
+      padding: 0.8rem 2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      font-family: 'Inter', sans-serif;
+      background: #eef3ee;
+      color: #1f3d2a;
+      border: 1px solid rgba(40, 80, 50, 0.06);
+      flex: 1 1 auto;
+      min-width: 120px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
     }
 
-    .footer-note a:hover {
-      text-decoration: underline;
+    .confirmation-modal .modal-btn.primary {
+      background: #1e3d2b;
+      color: white;
+      box-shadow: 0 4px 12px rgba(30, 61, 43, 0.15);
+      border-color: #1e3d2b;
     }
 
-    .grass-icon {
-      font-size: 1.6rem;
-      line-height: 1;
-      margin-right: 0.1rem;
+    .confirmation-modal .modal-btn.primary:hover {
+      background: #14331f;
+      transform: scale(0.97);
     }
 
-    /* mobile friendly */
-    @media (max-width: 480px) {
+    .confirmation-modal .modal-btn.secondary:hover {
+      background: #dce6dc;
+    }
+
+    .confirmation-modal .modal-btn .phone-icon-sm {
+      font-size: 1.1rem;
+    }
+
+    /* responsive */
+    @media (max-width: 580px) {
       .card {
-        padding: 2rem 1.2rem 2rem;
-        border-radius: 40px;
+        padding: 2rem 1.5rem;
+        border-radius: 32px;
       }
-      h1 {
-        font-size: 2.1rem;
-        flex-wrap: wrap;
+      .logo h1 {
+        font-size: 1.6rem;
       }
-      .btn-group {
+      .address-input-wrapper {
         flex-direction: column;
+        background: transparent;
+        box-shadow: none;
+        border: none;
+        gap: 0.8rem;
         align-items: stretch;
       }
-      .btn {
-        min-width: auto;
+      .address-input-wrapper input {
+        background: white;
+        border-radius: 60px;
+        padding: 1rem 1.4rem;
+        border: 1px solid rgba(40, 80, 50, 0.08);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      }
+      .address-input-wrapper .submit-btn {
+        margin-right: 0;
+        justify-content: center;
+        padding: 0.9rem;
+      }
+      .call-section {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+        padding: 1.2rem 1.2rem;
+      }
+      .call-btn {
         justify-content: center;
       }
-      .btn-secondary {
-        min-width: auto;
+      .footnote {
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+      .confirmation-modal {
+        padding: 2rem 1.5rem;
+      }
+      .confirmation-modal .modal-actions {
+        flex-direction: column;
+      }
+      .confirmation-modal .modal-btn {
+        width: 100%;
       }
     }
   </style>
 </head>
 <body>
-
   <div class="card">
-    <h1>
-      <span class="grass-icon">🌿</span> Turf Sages
-    </h1>
-    <div class="subhead">
-      ✦ lawn mowing · just name & address
-      <span>one‑step</span>
+    <!-- header -->
+    <div class="logo">
+      <div class="logo-icon">🌿</div>
+      <h1>Turf <span>Sages</span></h1>
     </div>
+    <div class="tagline">✧ precision mowing · Hockley, TX</div>
 
-    <!-- the one & only form: name + address, nothing else -->
-    <form id="bookingForm" action="#" method="POST">
+    <div class="divider"></div>
+
+    <!-- main address form -->
+    <form id="addressForm" action="#" method="POST">
       <div class="form-group">
-        <label for="customerName">
-          <i>🧑‍🌾</i> Full name
-        </label>
-        <input type="text" id="customerName" name="name" placeholder="e.g. Jamie Green" required autocomplete="name">
-      </div>
-
-      <div class="form-group">
-        <label for="customerAddress">
-          <i>📍</i> Address
-        </label>
-        <input type="text" id="customerAddress" name="address" placeholder="Street, city, zip" required autocomplete="street-address">
-      </div>
-
-      <div class="btn-group">
-        <button type="submit" class="btn" id="sendBtn">
-          ✦ Schedule now
-        </button>
-        <button type="reset" class="btn btn-secondary" id="resetBtn">
-          ↻ Clear
-        </button>
+        <span class="form-label">
+          <i>📍</i> service address
+        </span>
+        <div class="address-input-wrapper">
+          <input 
+            type="text" 
+            id="addressInput" 
+            placeholder="e.g. 123 Main St, Hockley, TX" 
+            required
+            autocomplete="street-address"
+            aria-label="Your street address"
+          >
+          <button type="submit" class="submit-btn" id="submitBtn">
+            <span>send</span>
+            <span style="font-size: 1.2rem; line-height: 1;">→</span>
+          </button>
+        </div>
       </div>
     </form>
 
-    <!-- status message area: shows feedback after send -->
+    <!-- status message (feedback) -->
     <div id="statusMessage" class="status-message">
-      <span class="emoji">⏳</span> Ready — fill & send
+      <span>🌱 enter your address &amp; we’ll reach out</span>
     </div>
 
-    <div class="footer-note">
-      ⚡ we’ll confirm your mowing · <a href="#" id="mailtoTrigger">📧 wanderlei.griffin11@gmail.com</a>
+    <!-- call manager -->
+    <div class="call-section">
+      <span class="call-label">
+        <span class="phone-icon">📞</span> 
+        <span>manager on duty</span>
+      </span>
+      <a href="tel:+16015978142" class="call-btn">
+        <span>📱</span> 601-597-8142
+      </a>
+    </div>
+
+    <div class="footnote">
+      <span>🌾 same-day service</span>
+      <span>✧ 5-star care</span>
+      <span>📍 Hockley &amp; surrounding</span>
+    </div>
+  </div>
+
+  <!-- CONFIRMATION OVERLAY (modal) -->
+  <div id="confirmationOverlay" class="confirmation-overlay">
+    <div class="confirmation-modal">
+      <div class="check-icon">✓</div>
+      <h2>address received</h2>
+      <div class="subhead">we'll reach out shortly</div>
+      <div class="address-display" id="confirmAddressDisplay">123 Main St, Hockley, TX</div>
+
+      <!-- encouragement to call -->
+      <div class="call-encouragement">
+        <p>
+          📞 <span>Prefer faster service? <br class="mobile-break" style="display: none;"> Call the manager directly:</span>
+        </p>
+        <p style="margin-top: 0.2rem; font-size: 1.2rem; font-weight: 700; color: #1e3d2b;">
+          <a href="tel:+16015978142" style="text-decoration: none; color: #1e3d2b; display: inline-flex; align-items: center; gap: 0.4rem;">
+            <span>📱</span> 601-597-8142
+          </a>
+        </p>
+        <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 0.2rem;">available now – same-day service</p>
+      </div>
+
+      <div class="modal-actions">
+        <button class="modal-btn secondary" id="closeConfirmBtn">close</button>
+        <a href="tel:+16015978142" class="modal-btn primary" style="text-decoration: none;">
+          <span class="phone-icon-sm">📞</span> call manager
+        </a>
+      </div>
     </div>
   </div>
 
   <script>
     (function() {
-      "use strict";
+      const form = document.getElementById('addressForm');
+      const addressInput = document.getElementById('addressInput');
+      const statusMessage = document.getElementById('statusMessage');
+      const submitBtn = document.getElementById('submitBtn');
 
-      // DOM elements
-      const form = document.getElementById('bookingForm');
-      const nameInput = document.getElementById('customerName');
-      const addressInput = document.getElementById('customerAddress');
-      const statusDiv = document.getElementById('statusMessage');
-      const resetBtn = document.getElementById('resetBtn');
+      // confirmation elements
+      const overlay = document.getElementById('confirmationOverlay');
+      const confirmAddressDisplay = document.getElementById('confirmAddressDisplay');
+      const closeConfirmBtn = document.getElementById('closeConfirmBtn');
 
-      // The target email (hardcoded as requested)
+      // Target email
       const TARGET_EMAIL = 'wanderlei.griffin11@gmail.com';
 
-      // Helper: update status with message and optional type
-      function setStatus(message, type = 'info') {
-        statusDiv.innerHTML = message;
-        statusDiv.className = 'status-message'; // reset
+      // Helper: show status message (inline, but we'll use modal on success)
+      function setStatus(text, type = 'info') {
+        statusMessage.innerHTML = text;
+        statusMessage.className = 'status-message';
         if (type === 'success') {
-          statusDiv.classList.add('success');
+          statusMessage.classList.add('success');
         } else if (type === 'error') {
-          statusDiv.classList.add('error');
-        }
-        // default: info style (green left border)
-      }
-
-      // Helper: show temporary "sending..." state
-      function setSending(isSending) {
-        const btn = document.getElementById('sendBtn');
-        if (isSending) {
-          btn.textContent = '⏳ Sending...';
-          btn.disabled = true;
-          btn.style.opacity = '0.7';
-        } else {
-          btn.textContent = '✦ Schedule now';
-          btn.disabled = false;
-          btn.style.opacity = '1';
+          statusMessage.classList.add('error');
         }
       }
 
-      // Build mailto: link with the data (name + address)
-      function buildMailtoLink(name, address) {
-        // subject & body with clear info
-        const subject = '🌿 Turf Sages · new lawn mowing request';
-        const body = 
-          `New lawn mowing request:\n\n` +
-          `Name: ${name.trim() || '(not provided)'}\n` +
-          `Address: ${address.trim() || '(not provided)'}\n\n` +
-          `---\nSent via Turf Sages quick form.`;
-        
-        // encodeURIComponent for safe mailto
-        const mailtoLink = `mailto:${TARGET_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        return mailtoLink;
+      // Show confirmation modal with address
+      function showConfirmation(address) {
+        confirmAddressDisplay.textContent = address;
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden'; // prevent scroll
       }
 
-      // Handle form submission
-      function handleFormSubmit(event) {
-        event.preventDefault(); // prevent page reload
+      // Hide confirmation modal
+      function hideConfirmation() {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
 
-        // Get values
-        const name = nameInput.value.trim();
+      // close via button
+      closeConfirmBtn.addEventListener('click', hideConfirmation);
+
+      // close if user clicks outside the modal content (on overlay)
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) {
+          hideConfirmation();
+        }
+      });
+
+      // Handle form submit
+      function handleFormSubmit(e) {
+        e.preventDefault();
+
         const address = addressInput.value.trim();
-
-        // Basic validation: both fields required (HTML required, but double-check)
-        if (!name || !address) {
-          setStatus('⚠️ Please enter both your name and address.', 'error');
-          // focus on empty field
-          if (!name) {
-            nameInput.focus();
-          } else {
-            addressInput.focus();
-          }
+        if (!address) {
+          setStatus('⚠️ please enter your address', 'error');
+          addressInput.focus();
           return;
         }
 
-        // Build mailto link
-        const mailtoLink = buildMailtoLink(name, address);
+        // Build the email content
+        const subject = encodeURIComponent('New lawn mowing request – Turf Sages (Hockley, TX)');
+        const body = encodeURIComponent(
+          `Address: ${address}\n\n` +
+          `---\n` +
+          `Sent from Turf Sages website (direct request).\n` +
+          `Manager contact: 601-597-8142\n` +
+          `Service area: Hockley, TX`
+        );
 
-        // 1) Show sending state
-        setSending(true);
-        setStatus('⏳ Preparing your request ...', 'info');
+        const mailtoLink = `mailto:${TARGET_EMAIL}?subject=${subject}&body=${body}`;
 
-        // 2) Open the user's email client with the pre-filled message
-        //    using window.location for mailto: (reliable)
-        //    but we also want to show success after a tiny delay.
-        //    We'll open the mailto and then update status.
+        // 1) Open mail client (Gmail, etc.)
         try {
-          // Open mailto link (this will open default email client)
-          window.location.href = mailtoLink;
-
-          // Since mailto: might not give feedback, we show success after a short delay.
-          // Also we reset the form after a moment (optional, but nice).
+          window.open(mailtoLink, '_blank');
+          // also try anchor fallback
+          const anchor = document.createElement('a');
+          anchor.href = mailtoLink;
+          anchor.target = '_blank';
+          anchor.style.display = 'none';
+          document.body.appendChild(anchor);
           setTimeout(() => {
-            // Show success message
-            setStatus(
-              `✅ Request sent! Check your email client. We’ll mow your lawn soon.`,
-              'success'
-            );
-            // Reset the form fields after successful send (user can still change)
-            // but we do NOT clear automatically because user may want to keep values.
-            // We'll provide a clear button for that.
-            setSending(false);
-          }, 600);
+            if (!document.hidden) {
+              anchor.click();
+            }
+            document.body.removeChild(anchor);
+          }, 300);
         } catch (err) {
-          // fallback: if mailto fails for any reason (should not happen)
-          setStatus('❌ Could not open email. Please try again or contact us directly.', 'error');
-          setSending(false);
+          // fallback: copy address
+          navigator.clipboard?.writeText(address).catch(() => {});
         }
 
-        // We also set a fallback: if after 2.5 sec the mailto didn't work,
-        // we still revert from sending state. But we already handle with setTimeout above.
-        // additionally, we handle if user clicks "Clear" while sending.
+        // Show confirmation modal (with address and call encouragement)
+        showConfirmation(address);
+
+        // Update inline status (but modal is primary)
+        setStatus(`✅ address recorded — check your mail client`, 'success');
+
+        // Clear error state if any
+        if (statusMessage.classList.contains('error')) {
+          setStatus(`✅ address recorded`, 'success');
+        }
+
+        // Reset status after a while (but modal stays until dismissed)
+        setTimeout(() => {
+          if (!overlay.classList.contains('active')) {
+            // only reset if modal is not active (user closed it)
+            setStatus('🌱 enter your address &amp; we’ll reach out', 'info');
+          }
+        }, 8000);
+
+        console.log(`🌿 Turf Sages address (Hockley, TX): ${address}`);
+        console.log(`📧 sent to ${TARGET_EMAIL}`);
       }
 
-      // Reset / clear form and status
-      function resetFormAndStatus() {
-        // if currently sending, we don't interrupt but we can clear anyway.
-        // reset the form fields
-        form.reset();
-        // reset status to default
-        setStatus('🧹 Cleared — ready for new request', 'info');
-        // make sure send button is re-enabled (if disabled)
-        setSending(false);
-        // focus on name
-        nameInput.focus();
-      }
-
-      // Attach event listeners
       form.addEventListener('submit', handleFormSubmit);
 
-      // Reset button: clear fields and status
-      resetBtn.addEventListener('click', function(e) {
-        e.preventDefault(); // prevent any weirdness
-        resetFormAndStatus();
-      });
-
-      // Extra: if user clicks on the "mailto" footer link, we can prefill a default message
-      // but that's just a nice extra; we keep it as a mailto link.
-      // But we can also hook the footer link to open the mail with default text?
-      const mailtoTrigger = document.getElementById('mailtoTrigger');
-      mailtoTrigger.addEventListener('click', function(e) {
-        e.preventDefault();
-        // if form has data, use it, otherwise use placeholder
-        const name = nameInput.value.trim() || 'your name';
-        const address = addressInput.value.trim() || 'your address';
-        const link = buildMailtoLink(name, address);
-        window.location.href = link;
-        setStatus('📧 Email client opened. Thank you!', 'success');
-      });
-
-      // Initial status 
-      setStatus('✏️ Enter name & address, then click “Schedule now”', 'info');
-
-      // Optional: if user types, we can clear error state (nice ux)
-      nameInput.addEventListener('input', function() {
-        if (statusDiv.classList.contains('error')) {
-          setStatus('✏️ Enter name & address, then click “Schedule now”', 'info');
-        }
-      });
+      // Clear error state when user types
       addressInput.addEventListener('input', function() {
-        if (statusDiv.classList.contains('error')) {
-          setStatus('✏️ Enter name & address, then click “Schedule now”', 'info');
+        if (statusMessage.classList.contains('error')) {
+          setStatus('🌱 enter your address &amp; we’ll reach out', 'info');
         }
       });
 
-      // Also if user uses the "Clear" button, we set focus
-      // already done in reset function
+      // Also if user closes modal, we reset status after a moment
+      // but we keep the status as success.
+      // We also ensure that when modal is closed, we don't override status
+      // but we set a small timeout to reset after a while.
+      // The hideConfirmation will be called by close or overlay click.
+      // We'll keep status as success and later reset.
 
-      console.log('🌿 Turf Sages — ready. Send to: ' + TARGET_EMAIL);
+      // Additional: if modal is closed, we keep success message for a while.
+      // We already have a timeout above.
+
+      console.log('Turf Sages – modern lawn mowing, Hockley TX with confirmation & call encouragement');
     })();
   </script>
-
-  <!-- note: all logic uses mailto to send data to wanderlei.griffin11@gmail.com -->
-  <!-- no backend, no third-party, just plain HTML+JS -->
 </body>
 </html>
